@@ -8,6 +8,10 @@
     justify-content: center;
     align-items: center;
 
+    a {
+        cursor: pointer;
+    }
+
     .carousel-wrapper {
         // Match the respective dimensions of chat box
         height: 270px;
@@ -54,6 +58,10 @@
                 height: 100px;
                 width: 100px;
             }
+        }
+
+        .main-item-wrapper {
+
         }
 
         .right-buttons-wrapper {

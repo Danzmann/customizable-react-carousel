@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { Component } from 'react';
+import CarouselItem from './CarouselItem';
 
 import './carousel.scss';
 
@@ -17,12 +18,37 @@ export default class App extends Component {
         this.state = initialState;
     }
 
-    createNewItem = (pos) => {
+    getCurrentItem = () => {
+        // eslint-disable-next-line react/destructuring-assignment
+        return this.state.itemList[this.state.currentItem];
+    }
 
+    createNewItem = (direction) => {
+        const { itemList, currentItem } = this.state;
+
+        // Add to the right (or in case it is empty)
+        if (itemList.length === 0 || direction === 1) {
+            this.setState({
+                itemList: [...itemList, <CarouselItem />],
+                currentItem: currentItem === 0 ? 0 : currentItem + 1,
+            });
+        }
+
+        // Add to the left
+        if (direction === -1) {
+            this.setState({
+                itemList: [<CarouselItem />, ...itemList],
+                currentItem: currentItem === 0 ? 0 : currentItem - 1,
+            });
+        }
     }
 
     changeItem = (direction) => {
+        const { currentItem } = this.state;
 
+        this.setState({
+            currentItem: direction === -1 ? currentItem - 1 : currentItem + 1,
+        });
     }
 
     render() {
@@ -43,9 +69,7 @@ export default class App extends Component {
                         </div>
                     </div>
                     {itemList.length !== 0
-                        ? (
-                            itemList[currentItem]
-                        )
+                        ? this.getCurrentItem()
                         : (
                             <div className="button-add-item-main-wrapper">
                                 <a className="button-add-item-small" onClick={this.createNewItem(0)}>
