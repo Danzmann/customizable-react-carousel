@@ -1,0 +1,85 @@
+
+.temporary-wrapper {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .carousel-wrapper {
+        // Match the respective dimensions of chat box
+        height: 270px;
+        width: 230px;
+        border: 1px solid #ececec;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left-buttons-wrapper {
+            display: flex;
+            flex-direction: column;
+            .button-change-item-left-wrapper {
+                cursor: pointer;
+                z-index: 1;
+                position: relative;
+                right: 15px;
+                background-color: white;
+                img {
+                    transform: rotate(180deg);
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+            .button-add-item-left-wrapper {
+                cursor: pointer;
+                z-index: 1;
+                position: relative;
+                right: 15px;
+                top: 20px;
+                background-color: white;
+                img {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+        }
+
+        .button-add-item-main-wrapper {
+            cursor: pointer;
+            z-index: 1;
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        .right-buttons-wrapper {
+            .button-change-item-right-wrapper {
+                cursor: pointer;
+                z-index: 1;
+                position: relative;
+                left: 15px;
+                background-color: white;
+                img {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+            .button-add-item-right-wrapper {
+                cursor: pointer;
+                z-index: 1;            
+                position: relative;
+                left: 15px;
+                top: 20px;
+                background-color: white;
+                img {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+        }
+    }
+}
