@@ -34,6 +34,8 @@ export default class CarouselItem extends Component {
     constructor(props) {
         super(props);
 
+        console.log("new one created");
+
         this.state = initialState;
     }
 
